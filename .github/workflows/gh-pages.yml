@@ -11,7 +11,7 @@ jobs:
         node-version: 16
     - name: Install npm deps
       working-directory: ./simple-chat
-      run: npm i
+      run: npm i --force
     - name: Build app
       working-directory: ./simple-chat
       run: npm run build
