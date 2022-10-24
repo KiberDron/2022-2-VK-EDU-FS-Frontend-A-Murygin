@@ -33,7 +33,6 @@ header {
     flex-direction: row;
     color: black;
     background-color: white;
-    /*transition: background-color 0.2s, color 0.2s; */
 }
 
 .chat-image {
