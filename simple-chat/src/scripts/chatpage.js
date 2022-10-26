@@ -60,6 +60,11 @@ function handleSubmit (event) {
     if (message.text == "") {
         return
     }
+    if (message.text == "clear()") { // option to clear messages in localStorage
+        localStorage.clear();
+        document.location.reload(true);
+        return
+    }
     createMessage(message);
     saveMessageToLocalStorage(message);
     input.value = "";
