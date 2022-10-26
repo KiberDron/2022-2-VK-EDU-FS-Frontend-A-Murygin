@@ -1,11 +1,20 @@
-import "./index.css";
+import "../styles/chatpage/header.css"
+import "../styles/chatpage/chat.css"
+import "../styles/chatpage/form.css"
+import "../styles/main.css";
 
 const form = document.querySelector("form");
 const input = document.querySelector(".form-input");
 const chat = document.querySelector(".chat");
+const back_button = document.querySelector('.back-button')
 
 form.addEventListener("submit", handleSubmit.bind(this));
 document.addEventListener("DOMContentLoaded", getMessagesFromLocalStorage.bind(this))
+back_button.addEventListener('click', goToChatList.bind(this))
+
+function goToChatList() {
+    window.location.href = './chatlist.html';
+}
 
 function getMessagesFromLocalStorage () {
     let messages = localStorage.getItem("messages") || "[]";
@@ -51,13 +60,12 @@ function handleSubmit (event) {
     if (message.text == "") {
         return
     }
+    if (message.text == "clear()") { // option to clear messages in localStorage
+        localStorage.clear();
+        document.location.reload(true);
+        return
+    }
     createMessage(message);
     saveMessageToLocalStorage(message);
     input.value = "";
-}
-
-function handleKeyPress (event) {
-    if (event.keyCode === 13) {
-        form.dispatchEvent(new Event("submit"));
-    }
 }

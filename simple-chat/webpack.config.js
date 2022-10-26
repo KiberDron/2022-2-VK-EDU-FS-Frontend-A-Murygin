@@ -12,14 +12,25 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 module.exports = {
     context: SRC_PATH,
     entry: {
-        index: './index.js',
+        index: './scripts/index.js',
+        chatlist: './scripts/chatlist.js',
+        chatpage: './scripts/chatpage.js'
     },
     output: {
         path: BUILD_PATH,
-        filename: 'bundle.js'
+        publicPath: '',
+        filename: 'scripts/[name].bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
+    /*devServer: {
+        static: {
+          directory: path.join(__dirname, 'build'),
+        },
+        compress: true,
+        port: 8080,
+      },*/
     module: {
-        strictExportPresence: true,
+        //strictExportPresence: true,
         rules: [
             {
                 test: /\.js$/,
@@ -33,7 +44,7 @@ module.exports = {
                     },
                 ],
             },
-            {
+            /*{
                 test: /shadow\.css$/,
                 include: SRC_PATH,
                 use: [
@@ -41,9 +52,9 @@ module.exports = {
                         loader: 'css-loader'
                     },
                 ],
-            },
+            },*/
             {
-                test: /index\.css$/,
+                test: /\.css$/,
                 include: SRC_PATH,
                 use: [
                     {
@@ -58,11 +69,27 @@ module.exports = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: 'style.css',
+            filename: 'styles/[name].css',
+            chunks: ['chatlist']
+        }),
+        new MiniCSSExtractPlugin({
+            filename: 'styles/[name].css',
+            chunks: ['chatpage']
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './index.html'
+            template: './index.html',
+            chunks: ['index']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'chatlist.html',
+            template: './chatlist.html',
+            chunks: ['chatlist']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'chatpage.html',
+            template: './chatpage.html',
+            chunks: ['chatpage']
         })
     ]
 };
