@@ -39,7 +39,7 @@
     color: #8E25AA;
 }
 
-@keyframes message-animanion {
+@keyframes message_animation{
     from {
         transform: scale(0);
         transform-origin: bottom right;
@@ -63,5 +63,5 @@
     align-self: flex-end;
     background-color: #F3E5F5;
     border: 1px solid #DCD8DD;
-    animation: message-animation 0.5s;
+    animation: message_animation 0.3s;
 }
