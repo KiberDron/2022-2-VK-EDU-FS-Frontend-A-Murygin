@@ -11,6 +11,20 @@ header {
     background-color: #8E24AA;
     flex-basis: 80px;
     border: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover,
+.search-button:hover,
+.more-button:hover {
+    background-color: #ab47b2;
+}
+
+.back-button:active,
+.search-button:active,
+.more-button:active {
+    background-color: rgb(151, 48, 195);
 }
 
 .profile {
@@ -25,6 +39,7 @@ header {
     width: 50px;
     height: 50px;
     border-radius: 45px;
+    cursor: pointer; 
 }
 
 .profile-info {
@@ -50,6 +65,7 @@ header {
     padding: 20px;
     flex-basis: 90px;
     overflow-y: auto;
+    animation: right-message-scale 0.5s;
 }
 
 .message {
@@ -83,6 +99,18 @@ header {
     color: #8E25AA;
 }
 
+@keyframes message-animanion {
+    from {
+        transform: scale(0);
+        transform-origin: bottom right;
+    }
+  
+    to {
+        transform: scale(1);
+        transform-origin: bottom right;
+    }
+}
+
 .left {
     height: 60px;
     align-self: flex-start;
@@ -95,6 +123,7 @@ header {
     align-self: flex-end;
     background-color: #F3E5F5;
     border: 1px solid #DCD8DD;
+    animation: message-animation 0.5s;
 }
 .form {
     height: 60px;
@@ -114,6 +143,17 @@ header {
     border: 0;
     padding-right: 20px;
     background-color: white;
+    cursor: pointer;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.attachment-button:hover {
+    opacity: 0.8;
+}
+  
+.attachment-button:active {
+    opacity: 0.8;
+    color: #aa00ff;
 }
 
 input {
