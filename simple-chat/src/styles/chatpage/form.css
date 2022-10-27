@@ -16,6 +16,17 @@
     border: 0;
     padding-right: 20px;
     background-color: white;
+    cursor: pointer;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.attachment-button:hover {
+    opacity: 0.8;
+}
+  
+.attachment-button:active {
+    opacity: 0.8;
+    color: #aa00ff;
 }
 
 input {
