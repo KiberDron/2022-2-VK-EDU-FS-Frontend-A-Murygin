@@ -33,10 +33,10 @@ export default function PageChat({handleLoginClick}) {
             "time": `${new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"})}`,
             "id": Date.now()
         };
-        if (message.text == "") {
+        if (message.text === "") {
             return
         }
-        if (message.text == "clear()") { // option to clear messages in localStorage
+        if (message.text === "clear()") { // option to clear messages in localStorage
             localStorage.clear();
             document.location.reload(true);
             return
