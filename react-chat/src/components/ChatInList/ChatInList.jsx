@@ -6,7 +6,7 @@ export default function Chat({onClick, chat_name, img_path, last_message, last_m
     return (
         <section className={classes.chat} onClick={onClick}>
             <div className={classes.chat_image}>
-                <img className={classes.image} src={img_path} alt="profile_image" style={{ width: 60, height: 60 }} />
+                <img className={classes.image} src={img_path} alt="profile_image" />
             </div>
             <div className={classes.chat_info}>
                 <span className="chat_name">{chat_name}</span>

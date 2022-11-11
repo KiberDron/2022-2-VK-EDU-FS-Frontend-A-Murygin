@@ -12,7 +12,7 @@ export default function PageChat({handleLoginClick}) {
     function getMessagesFromLocalStorage() {
         let messages = localStorage.getItem("messages") || "[]";
         messages = JSON.parse(messages);
-        return messages.all;
+        return messages.reverse();
     }
 
     function saveMessageToLocalStorage(message) {

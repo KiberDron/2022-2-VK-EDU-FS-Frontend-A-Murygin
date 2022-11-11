@@ -10,7 +10,7 @@ export function ClickHandler({ isClickOnChat, handleLoginClick }) {
     return <PageChatList handleLoginClick={handleLoginClick} />;
 }
 
-class LoginControl extends Component {
+class StartApp extends Component {
 	constructor(props) {
 		super(props);
 		this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -18,8 +18,6 @@ class LoginControl extends Component {
 	}
 
 	handleLoginClick() {
-		console.log('f')
-		console.log(this)
 		this.setState({ isClickOnChat: !this.state.isClickOnChat });
 	}
 
@@ -33,4 +31,4 @@ class LoginControl extends Component {
 	}
 }
 
-export default LoginControl;
+export default StartApp;

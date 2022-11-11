@@ -1,13 +1,13 @@
 import './App.css';
 import React, { Component } from 'react';
-import LoginControl from './utils/Router'
+import StartApp from './utils/Router'
 
 
 class App extends Component {
 	render() {
 		return (
 			<div>
-				 <LoginControl/>
+				<StartApp/>
 			</div>
 		);
 	}

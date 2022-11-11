@@ -21,7 +21,7 @@ export default function PageChatList({handleLoginClick}) {
                     count={1}
                 ></ChatInList>
                 <ChatInList
-                    onClick={handleLoginClick}
+                    //onClick={handleLoginClick}
                     chat_name={"Антон Иванов"}
                     img_path={"https://bit.ly/3TuBtmr"}
                     last_message={"Тоха, ты где?"}
@@ -31,7 +31,7 @@ export default function PageChatList({handleLoginClick}) {
                     count={"done_all"}
                 ></ChatInList>
                 <ChatInList
-                    onClick={handleLoginClick}
+                    //onClick={handleLoginClick}
                     chat_name={"Денис универ"}
                     img_path={"https://bit.ly/3SwIvWp"}
                     last_message={"Едешь на пары?"}
