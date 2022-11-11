@@ -5,6 +5,17 @@
     padding: 16px 20px 20px 20px;
     margin: 8px;
     word-break: break-word;
+    height: 30px;
+    align-self: flex-end;
+    background-color: #F3E5F5;
+    border: 1px solid #DCD8DD;
+    animation: message_animation 0.3s;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 .message_text {

@@ -3,14 +3,14 @@ import PageChatList from '../pages/PageChatList/PageChatList'
 import PageChat from '../pages/PageChat/PageChat';
 
 
-function ClickHandler({ isClickOnChat, handleLoginClick }) {
+export function ClickHandler({ isClickOnChat, handleLoginClick }) {
     if (isClickOnChat) {
-        return <PageChat handleLoginClick={handleLoginClick}/>;
+        return <PageChat handleLoginClick={handleLoginClick} />;
     }
     return <PageChatList handleLoginClick={handleLoginClick} />;
 }
 
-export default class LoginControl extends Component {
+class LoginControl extends Component {
 	constructor(props) {
 		super(props);
 		this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -32,3 +32,5 @@ export default class LoginControl extends Component {
 		);
 	}
 }
+
+export default LoginControl;

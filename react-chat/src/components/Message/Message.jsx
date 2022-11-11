@@ -5,8 +5,13 @@ import classes from './Message.module.scss'
 export default function MessageList(props) {
     return (
         <div className={classes.message}>
-            <div className={classes.message_text}>{props.message_text}</div>
-            <div className={classes.message_info}>{props.message_info}</div>
+            <span className={classes.message_text}>{props.text}</span>
+            <div className={classes.message_info}>
+                <span className={classes.message_time}>{props.time}</span>
+                <div className={classes.message_status}>
+                    <span className="material-icons">done_all</span>
+                </div>
+            </div>
         </div>
     )
 }

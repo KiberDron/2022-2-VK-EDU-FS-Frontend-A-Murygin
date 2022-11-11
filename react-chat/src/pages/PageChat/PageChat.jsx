@@ -31,7 +31,7 @@ export default function PageChat({handleLoginClick}) {
         const message = {
             "text": text,
             "time": `${new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"})}`,
-            "sender": "Andrey"
+            "id": Date.now()
         };
         if (message.text == "") {
             return
@@ -65,8 +65,7 @@ export default function PageChat({handleLoginClick}) {
                 type="textarea"
                 value={text}
                 onChange={handleChange}
-            >attachment
-            </Form>
+            >attachment</Form>
         </div>
     )
 }
