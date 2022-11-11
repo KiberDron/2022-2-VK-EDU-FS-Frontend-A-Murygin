@@ -6,14 +6,14 @@ import classes from './PageChat.module.scss';
 
 
 export default function PageChat({handleLoginClick}) {
-    const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState([]);
     const [text, setText] = useState('');
 
-    function getMessagesFromLocalStorage () {
+    function getMessagesFromLocalStorage() {
         let messages = localStorage.getItem("messages") || "[]";
         messages = JSON.parse(messages);
         return messages.all;
-      }
+    }
 
     function saveMessageToLocalStorage(message) {
         let messages = localStorage.getItem("messages") || "[]";
@@ -28,11 +28,11 @@ export default function PageChat({handleLoginClick}) {
 
     function handleSubmit (event) {
         event.preventDefault();
-        const message = {
+        let message = {
             "text": text,
             "time": `${new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"})}`,
             "id": Date.now()
-        };
+        }
         if (message.text === "") {
             return
         }
@@ -41,19 +41,19 @@ export default function PageChat({handleLoginClick}) {
             document.location.reload(true);
             return
         }
-        setMessages([...messages, { ...message, id: Date.now()}]);
+        setMessages([{ ...message, id: Date.now()}, ...messages]);
         saveMessageToLocalStorage(message);
         setText('');
     }
 
     function loadMessages() {
-        let savedMessages = getMessagesFromLocalStorage()
+        let savedMessages = getMessagesFromLocalStorage();
         if (savedMessages) {
-            setMessages(savedMessages);
+            messages = savedMessages;
         }
     }
 
-    useEffect(loadMessages, [])
+    useEffect(loadMessages, []);
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader onClick={handleLoginClick}></ChatPageHeader>
