@@ -1,0 +1,25 @@
+.create_chat_button {
+    position: absolute;
+    box-shadow: 2px 2px #c6c3c7;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 0;
+    background-color: #f9d667;
+    bottom: 25px;
+    right: 25px;
+    cursor: pointer;
+    /*transform: scale(2);*/
+    transition: all 0.2s;
+}
+
+.create_chat_button:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+
+  .create_chat_button:active {
+    opacity: 1;
+    transform: scale(1);
+    animation: pulse 0.2s 1 ease-out;
+  }

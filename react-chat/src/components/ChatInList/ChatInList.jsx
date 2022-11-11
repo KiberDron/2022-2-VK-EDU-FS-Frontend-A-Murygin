@@ -1,0 +1,23 @@
+import React from 'react'
+import classes from './ChatInList.module.scss'
+
+
+export default function Chat({onClick, chat_name, img_path, last_message, last_message_time, message_status, read_status, count}) {
+    return (
+        <section className={classes.chat} onClick={onClick}>
+            <div className={classes.chat_image}>
+                <img className={classes.image} src={img_path} alt="profile_image" style={{ width: 60, height: 60 }} />
+            </div>
+            <div className={classes.chat_info}>
+                <span className="chat_name">{chat_name}</span>
+                <span className={classes.last_message}>{last_message}</span>
+            </div>
+            <div className={classes.chat_info}>
+                <span className={classes.last_message_time}>{last_message_time}</span>
+                <div className={message_status}>
+                    <span className={read_status}>{count}</span>
+                </div>
+            </div>
+        </section>
+    )
+}
