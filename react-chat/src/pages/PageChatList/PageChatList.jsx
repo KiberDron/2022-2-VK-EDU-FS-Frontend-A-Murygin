@@ -16,8 +16,8 @@ export default function PageChatList({handleLoginClick}) {
                     img_path={"https://bit.ly/3D1dHbQ"}
                     last_message={"Привет :)"}
                     last_message_time={"15:52"}
-                    message_status={"classes.received_message_status"}
-                    read_status={"classes.messages_count"}
+                    message_status={classes.received_message_status}
+                    read_status={classes.messages_count}
                     count={1}
                 ></ChatInList>
                 <ChatInList
@@ -26,7 +26,7 @@ export default function PageChatList({handleLoginClick}) {
                     img_path={"https://bit.ly/3TuBtmr"}
                     last_message={"Тоха, ты где?"}
                     last_message_time={"14:21"}
-                    message_status={"classes.message_status"}
+                    message_status={classes.message_status}
                     read_status={"material-icons"}
                     count={"done_all"}
                 ></ChatInList>
@@ -36,7 +36,7 @@ export default function PageChatList({handleLoginClick}) {
                     img_path={"https://bit.ly/3SwIvWp"}
                     last_message={"Едешь на пары?"}
                     last_message_time={"08:22"}
-                    message_status={"classes.message_status"}
+                    message_status={classes.message_status}
                     read_status={"material-icons"}
                     count={"done"}
                 ></ChatInList>

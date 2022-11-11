@@ -1,5 +1,6 @@
 {
   "name": "react-chat",
+  "homepage": "https://kiberdron.github.io/2022-2-VK-EDU-FS-Frontend-A-Murygin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

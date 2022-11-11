@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './Message.module.scss'
 
 
-export default function MessageList(props) {
+export default function Message(props) {
     return (
         <div className={classes.message}>
             <span className={classes.message_text}>{props.text}</span>

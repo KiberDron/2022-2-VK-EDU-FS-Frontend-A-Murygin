@@ -12,7 +12,7 @@ export default function Chat({onClick, chat_name, img_path, last_message, last_m
                 <span className="chat_name">{chat_name}</span>
                 <span className={classes.last_message}>{last_message}</span>
             </div>
-            <div className={classes.chat_info}>
+            <div className={classes.chat_meta}>
                 <span className={classes.last_message_time}>{last_message_time}</span>
                 <div className={message_status}>
                     <span className={read_status}>{count}</span>
