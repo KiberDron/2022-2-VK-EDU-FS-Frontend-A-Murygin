@@ -49,7 +49,7 @@ export default function PageChat({handleLoginClick}) {
     function loadMessages() {
         let savedMessages = getMessagesFromLocalStorage();
         if (savedMessages) {
-            messages = savedMessages;
+            setMessages(savedMessages);
         }
     }
 
