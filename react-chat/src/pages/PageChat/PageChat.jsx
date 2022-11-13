@@ -28,7 +28,7 @@ export default function PageChat({handleLoginClick}) {
 
     function handleSubmit (event) {
         event.preventDefault();
-        let message = {
+        const message = {
             "text": text,
             "time": `${new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"})}`,
             "id": Date.now()
@@ -38,7 +38,8 @@ export default function PageChat({handleLoginClick}) {
         }
         if (message.text === "clear()") { // option to clear messages in localStorage
             localStorage.clear();
-            document.location.reload(true);
+            setMessages([]);
+            setText('');
             return
         }
         setMessages([{ ...message, id: Date.now()}, ...messages]);
@@ -47,7 +48,7 @@ export default function PageChat({handleLoginClick}) {
     }
 
     function loadMessages() {
-        let savedMessages = getMessagesFromLocalStorage();
+        const savedMessages = getMessagesFromLocalStorage();
         if (savedMessages) {
             setMessages(savedMessages);
         }
