@@ -66,7 +66,7 @@ export default function PageChat({handleLoginClick}) {
                 type="textarea"
                 value={text}
                 onChange={handleChange}
-            >attachment</Form>
+            ></Form>
         </div>
     )
 }

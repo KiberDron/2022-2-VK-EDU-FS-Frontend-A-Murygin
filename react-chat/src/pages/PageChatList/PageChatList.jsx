@@ -3,6 +3,8 @@ import ChatListHeader from '../../components/ChatListHeader/ChatListHeader'
 import ChatInList from '../../components/ChatInList/ChatInList'
 import CreateChatButton from '../../components/CreateChat/CreateChat'
 import classes from './PageChatList.module.scss';
+import Done from '@mui/icons-material/Done';
+import DoneAll from '@mui/icons-material/DoneAll';
 
 
 export default function PageChatList({handleLoginClick}) {
@@ -17,6 +19,7 @@ export default function PageChatList({handleLoginClick}) {
                     last_message={"Привет :)"}
                     last_message_time={"15:52"}
                     message_status={classes.received_message_status}
+                    Tag={"span"}
                     read_status={classes.messages_count}
                     count={1}
                 ></ChatInList>
@@ -27,8 +30,9 @@ export default function PageChatList({handleLoginClick}) {
                     last_message={"Тоха, ты где?"}
                     last_message_time={"14:21"}
                     message_status={classes.message_status}
+                    Tag={DoneAll}
                     read_status={"material-icons"}
-                    count={"done_all"}
+                    count={""}
                 ></ChatInList>
                 <ChatInList
                     //onClick={handleLoginClick}
@@ -37,8 +41,9 @@ export default function PageChatList({handleLoginClick}) {
                     last_message={"Едешь на пары?"}
                     last_message_time={"08:22"}
                     message_status={classes.message_status}
+                    Tag={Done}
                     read_status={"material-icons"}
-                    count={"done"}
+                    count={""}
                 ></ChatInList>
             </article>
             <CreateChatButton></CreateChatButton>

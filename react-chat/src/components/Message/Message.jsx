@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Message.module.scss'
+import DoneAll from '@mui/icons-material/DoneAll';
 
 
 export default function Message(props) {
@@ -9,7 +10,7 @@ export default function Message(props) {
             <div className={classes.message_info}>
                 <span className={classes.message_time}>{props.time}</span>
                 <div className={classes.message_status}>
-                    <span className="material-icons">done_all</span>
+                    <DoneAll></DoneAll>
                 </div>
             </div>
         </div>

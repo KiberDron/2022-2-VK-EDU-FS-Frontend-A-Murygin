@@ -1,12 +1,15 @@
 import React from 'react'
 import classes from './ChatPageHeader.module.scss'
+import ArrowBack from '@mui/icons-material/ArrowBack';
+import Search from '@mui/icons-material/Search';
+import MoreVert from '@mui/icons-material/MoreVert';
 
 
 export default function ChatPageHeader({onClick}) {
     return (
         <header className={classes.header}>
             <button className={classes.back_button} type="" onClick={onClick}>
-                <span className="material-icons">arrow_back</span>
+                <ArrowBack></ArrowBack>
             </button>
             <div className={classes.profile}>
                 <img className={classes.profile_image} src="https://bit.ly/3D1dHbQ" alt="" />
@@ -16,10 +19,10 @@ export default function ChatPageHeader({onClick}) {
                 </div>
             </div>
             <button className={classes.search_button} type="">
-                <span className="material-icons">search</span>
+                <Search></Search>
             </button>
             <button className={classes.more_button} type="">
-                <span className="material-icons">more_vert</span>
+                <MoreVert></MoreVert>
             </button>
         </header>
     )

@@ -1,16 +1,18 @@
 import React from 'react'
 import classes from './ChatListHeader.module.scss'
+import Search from '@mui/icons-material/Search';
+import Menu from '@mui/icons-material/Menu';
 
 
 export default function ChatListHeader() {
     return (
         <header className={classes.header}>
             <button className={classes.menu_button} type="">
-                <span className="material-icons">menu</span>
+                <Menu></Menu>
             </button>
             <div className={classes.page_title}>Messenger</div>
             <button className={classes.search_button} type="">
-                <span className="material-icons">search</span>
+                <Search></Search>
             </button>
         </header>
     )
