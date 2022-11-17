@@ -7,9 +7,9 @@ export default function ProfileImage() {
     return (
         <div className={classes.profile_image}>
             <img className={classes.image} src="https://bit.ly/3Eg3ck7" alt="profile_image" />
-            <div className={classes.add_photo}>
+            <span className={classes.add_photo}>
                 <CameraAlt></CameraAlt>
-            </div>
+            </span>
         </div>
     )
 }

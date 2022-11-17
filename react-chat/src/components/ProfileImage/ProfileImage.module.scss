@@ -1,8 +1,9 @@
 .profile_image {
     display: flex;
-    left: 43vw;
+    left: 45vw;
     height: 100px;
     width: 100px;
+    margin-top: 5vh;
     border-radius: 50%;
     position: relative;
     cursor: pointer;
@@ -14,20 +15,20 @@
     border-radius: 50%;
 }
 
-.profile_image div {
+.profile_image span {
     position: absolute;
     top: 42%;
     left: 38%;
     display: none;
 }
 
-.profile_image:hover div {
+.profile_image:hover span {
     transform: scale(1.5);
     display: block;
 }
 
 .profile_image:hover {
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .add_photo {
