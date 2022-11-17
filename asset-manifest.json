@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/css/main.3653a752.css",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/js/main.9391b5b1.js",
+    "static/js/787.890e5f70.chunk.js": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/js/787.890e5f70.chunk.js",
+    "index.html": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/index.html",
+    "main.3653a752.css.map": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/css/main.3653a752.css.map",
+    "main.9391b5b1.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/js/main.9391b5b1.js.map",
+    "787.890e5f70.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-A-Murygin/static/js/787.890e5f70.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3653a752.css",
+    "static/js/main.9391b5b1.js"
+  ]
+}
