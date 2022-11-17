@@ -1,0 +1,35 @@
+.profile_image {
+    display: flex;
+    left: 43vw;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.profile_image div {
+    position: absolute;
+    top: 42%;
+    left: 38%;
+    display: none;
+}
+
+.profile_image:hover div {
+    transform: scale(1.5);
+    display: block;
+}
+
+.profile_image:hover {
+    opacity: 0.6;
+}
+
+.add_photo {
+    color: white;
+}
