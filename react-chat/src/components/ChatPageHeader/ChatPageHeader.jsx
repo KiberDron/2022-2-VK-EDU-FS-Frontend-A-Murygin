@@ -1,16 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './ChatPageHeader.module.scss'
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import Search from '@mui/icons-material/Search';
 import MoreVert from '@mui/icons-material/MoreVert';
 
 
-export default function ChatPageHeader({onClick}) {
+export default function ChatPageHeader() {
     return (
         <header className={classes.header}>
-            <button className={classes.back_button} type="" onClick={onClick}>
-                <ArrowBack></ArrowBack>
-            </button>
+            <Link className={classes.link} to='/'>
+                <button className={classes.back_button} type="">
+                    <ArrowBack></ArrowBack>
+                </button>
+            </Link>
             <div className={classes.profile}>
                 <img className={classes.profile_image} src="https://bit.ly/3D1dHbQ" alt="" />
                 <div className={classes.profile_info}>

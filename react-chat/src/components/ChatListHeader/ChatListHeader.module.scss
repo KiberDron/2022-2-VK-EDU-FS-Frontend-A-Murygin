@@ -23,6 +23,14 @@
     transition: background-color 0.2s;
 }
 
+.link {
+    flex-basis: 72px;
+}
+
+.menu_button {
+    padding: 31px 24px;
+}
+
 .menu_button:hover, 
 .search_button:hover {
     background-color: #ab47b2;
