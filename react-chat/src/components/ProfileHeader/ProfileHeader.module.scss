@@ -13,12 +13,12 @@
     font-size: 24px;
 }
 
-.menu_button, 
-.search_button {
+.back_button, 
+.done_button {
     background-color: #8E24AA;
     color: white;
     border: 0;
-    flex-basis: 60px;
+    //flex-basis: 60px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -27,16 +27,17 @@
     flex-basis: 72px;
 }
 
-.menu_button {
+.back_button,
+.done_button {
     padding: 31px 24px;
 }
 
-.menu_button:hover, 
-.search_button:hover {
+.back_button:hover, 
+.done_button:hover {
     background-color: #ab47b2;
 }
 
-.menu_button:active, 
-.search_button:active {
+.back_button:active, 
+.done_button:active {
     background-color: rgb(151, 48, 195);
 }
