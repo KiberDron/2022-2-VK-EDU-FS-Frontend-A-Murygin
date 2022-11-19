@@ -1,0 +1,9 @@
+.chat {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 1;
+    padding: 20px;
+    flex-basis: 90px;
+    overflow-y: auto;
+    animation: right-message-scale 0.5s;
+}

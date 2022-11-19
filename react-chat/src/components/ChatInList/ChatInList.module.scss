@@ -1,0 +1,65 @@
+.chat { 
+    display: flex;
+    flex-direction: row;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat:hover {
+    background-color: rgb(221, 208, 208);
+  }
+  
+.chat:active {
+    background-color: rgb(212, 184, 214);
+  }
+
+.chat_image {
+    display: flex;
+    flex-basis: 85px;
+    align-items: center;
+    justify-content: center;
+}
+
+.image { 
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.chat_info, .chat_meta {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-bottom: 1px solid #e7e7e7;
+    gap: 10px;
+}
+
+.chat_info {
+    flex-grow: 1;
+}
+
+.last_message, .last_message_time {
+    color: #787878;
+}
+
+.message_status {
+    color: #8E24AA;
+    align-self: flex-end;
+}
+
+.received_message_status {
+    padding: 2px 0 0 0;
+    height: 25px;
+    width: 30px;
+    background-color: #8E24AA;
+    align-self: flex-end;
+    border-radius: 35%;
+    text-align: center;
+}
+
+.messages_count {
+    color: white;
+    font-size: 14px;
+}
