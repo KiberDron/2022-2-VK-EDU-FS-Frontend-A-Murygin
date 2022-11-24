@@ -57,7 +57,11 @@ export default function PageChat({handleLoginClick}) {
     useEffect(loadMessages, []);
     return (
         <div className={classes.chat_page}>
-            <ChatPageHeader onClick={handleLoginClick}></ChatPageHeader>
+            <ChatPageHeader
+                img_path="https://bit.ly/3D1dHbQ"
+                name="Дженнифер"
+                last_seen="Была 2 часа назад"
+            ></ChatPageHeader>
             <Chat messages={messages}></Chat>
             <Form
                 onSubmit={handleSubmit}

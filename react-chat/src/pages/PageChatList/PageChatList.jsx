@@ -13,6 +13,18 @@ export default function PageChatList() {
         <>
             <ChatListHeader></ChatListHeader>
             <article className={classes.chat_list}>
+                <Link to='/global_chat' style={{textDecoration: 'none'}}>
+                    <ChatInList
+                        chat_name={"Общий чат"}
+                        img_path={"https://bit.ly/3EZwFjZ"}
+                        last_message={"Привет из общего чата!"}
+                        last_message_time={"19:01"}
+                        message_status={classes.message_status}
+                        Tag={DoneAll}
+                        read_status={"material-icons"}
+                        count={""}
+                    ></ChatInList>
+                </Link>
                 <Link to='/chat' style={{textDecoration: 'none'}}>
                     <ChatInList
                         chat_name={"Дженнифер"}
