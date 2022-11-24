@@ -9,19 +9,15 @@ export default function PageGlobalChat() {
     const [messages, setMessages] = useState([]);
     const [text, setText] = useState('');
 
-    useEffect(() => {}, [messages]);
-
     useEffect(() => {
           const pollItems = () => {
             fetch('https://tt-front.vercel.app/messages')
               .then((resp) => resp.json())
               .then((data) => setMessages(data.reverse()));
           };
-          setInterval(() => pollItems(), 3000);
+          setInterval(() => pollItems(), 1000);
         }, []);
     
-    useEffect(() => {}, []);
-
     function sendMessage(message) {
         fetch('https://tt-front.vercel.app/message', {
             method: "POST",
