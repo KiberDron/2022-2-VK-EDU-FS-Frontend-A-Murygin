@@ -5,56 +5,62 @@ import Chat from '../../components/Chat/Chat'
 import classes from './PageChat.module.scss';
 
 
-export default function PageChat({handleLoginClick}) {
+export default function PageChat() {
     const [messages, setMessages] = useState([]);
     const [text, setText] = useState('');
 
-    function getMessagesFromLocalStorage() {
-        let messages = localStorage.getItem("messages") || "[]";
-        messages = JSON.parse(messages);
-        return messages.reverse();
-    }
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-    function saveMessageToLocalStorage(message) {
-        let messages = localStorage.getItem("messages") || "[]";
-        messages = JSON.parse(messages);
-        messages.push(message);
-        localStorage.setItem("messages", JSON.stringify(messages));
+    useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
+        fetch('api/chats/1/messages')
+          .then(resp => resp.json())
+          .then(data => setMessages(data.reverse()))
+    }, []);
+
+    useEffect(() => { // для получения сообщений собеседника в реальном времени
+        const pollItems = () => {
+            fetch('api/chats/1/messages')
+            .then((resp) => resp.json())
+            .then((data) => setMessages(data.reverse()));
+        };
+        setInterval(() => pollItems(), 1000);
+    }, []);
+
+    const getMessages = () => {
+        fetch('api/chats/1/messages')
+        .then(res => res.json())
+        .then(data => setMessages(data.reverse()));
+        };
+
+    function sendMessage(message) {
+        fetch('api/chats/1/messages/create/', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(message),
+        });
     }
 
     function handleChange(event) {
         setText(event.target.value);
     }
 
-    function handleSubmit (event) {
+    async function handleSubmit (event) {
         event.preventDefault();
         const message = {
             "text": text,
-            "time": `${new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"})}`,
-            "id": Date.now()
+            "author": 1
         }
-        if (message.text === "") {
+        if (message.message_text === "") {
             return
         }
-        if (message.text === "clear()") { // option to clear messages in localStorage
-            localStorage.clear();
-            setMessages([]);
-            setText('');
-            return
-        }
-        setMessages([{ ...message, id: Date.now()}, ...messages]);
-        saveMessageToLocalStorage(message);
+        sendMessage(message);
+        await sleep(100); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
+        getMessages(); // для отображения отправленного сообщения сразу же
         setText('');
     }
 
-    function loadMessages() {
-        const savedMessages = getMessagesFromLocalStorage();
-        if (savedMessages) {
-            setMessages(savedMessages);
-        }
-    }
-
-    useEffect(loadMessages, []);
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader
