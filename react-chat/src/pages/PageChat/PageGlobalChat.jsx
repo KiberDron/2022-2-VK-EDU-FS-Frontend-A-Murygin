@@ -1,39 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import ChatPageHeader from '../../components/ChatPageHeader/ChatPageHeader'
 import Form from '../../components/Form/Form'
-import Chat from '../../components/Chat/Chat'
+import GlobalChat from '../../components/Chat/GlobalChat'
 import classes from './PageChat.module.scss';
 
 
-export default function PageChat() {
+export default function PageGlobalChat() {
     const [messages, setMessages] = useState([]);
     const [text, setText] = useState('');
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
     useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
-        fetch('api/chats/1/messages')
+        fetch('https://tt-front.vercel.app/messages')
           .then(resp => resp.json())
           .then(data => setMessages(data.reverse()))
     }, []);
 
     useEffect(() => { // для получения сообщений собеседника в реальном времени
         const pollItems = () => {
-            fetch('api/chats/1/messages')
-            .then((resp) => resp.json())
-            .then((data) => setMessages(data.reverse()));
+            fetch('https://tt-front.vercel.app/messages')
+              .then((resp) => resp.json())
+              .then((data) => setMessages(data.reverse()));
         };
         setInterval(() => pollItems(), 1000);
     }, []);
 
     const getMessages = () => {
-        fetch('api/chats/1/messages')
+        fetch('https://tt-front.vercel.app/messages')
         .then(res => res.json())
         .then(data => setMessages(data.reverse()));
         };
-
+    
     function sendMessage(message) {
-        fetch('api/chats/1/messages/create/', {
+        fetch('https://tt-front.vercel.app/message', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -50,13 +50,13 @@ export default function PageChat() {
         event.preventDefault();
         const message = {
             "text": text,
-            "author": 1
+            "author": "Andrey Murygin"
         }
-        if (message.message_text === "") {
+        if (message.text === "") {
             return
         }
         sendMessage(message);
-        await sleep(100); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
+        await sleep(200); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
         getMessages(); // для отображения отправленного сообщения сразу же
         setText('');
     }
@@ -64,11 +64,11 @@ export default function PageChat() {
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader
-                img_path="https://bit.ly/3D1dHbQ"
-                name="Дженнифер"
-                last_seen="Была 2 часа назад"
+                img_path="https://bit.ly/3EZwFjZ"
+                name="Общий чат"
+                last_seen="В сети"
             ></ChatPageHeader>
-            <Chat messages={messages}></Chat>
+            <GlobalChat messages={messages}></GlobalChat>
             <Form
                 onSubmit={handleSubmit}
                 name="message-text"
