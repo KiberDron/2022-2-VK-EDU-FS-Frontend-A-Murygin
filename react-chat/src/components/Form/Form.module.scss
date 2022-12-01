@@ -11,20 +11,36 @@
     padding: 20px;
 }
 
-.attachment_button {
+.attachment_button,
+.location_button,
+.audio_button {
     color: #757575;
     border: 0;
-    padding-right: 20px;
     background-color: white;
     cursor: pointer;
     transition: opacity 0.2s, color 0.2s;
 }
 
-.attachment_button:hover {
+.attachment_button {
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+.location_button,
+.audio_button {
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.attachment_button:hover,
+.location_button:hover,
+.audio_button:hover {
     opacity: 0.8;
 }
   
-.attachment_button:active {
+.attachment_button:active,
+.location_button:active,
+.audio_button:active {
     opacity: 0.8;
     color: #aa00ff;
 }
