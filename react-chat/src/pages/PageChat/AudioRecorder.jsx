@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function AudioRecorder() {
@@ -15,7 +15,7 @@ export default function AudioRecorder() {
         const audio = data;
         const reader = new FileReader();
         reader.onload = () => {
-            setAudio(reader.result);
+            setAudio(new File([audio], "mp3"));
         };
 
         if (audio) {
@@ -43,7 +43,6 @@ export default function AudioRecorder() {
 
     recorder.ondataavailable = (e) => {
         handleAudio(e.data);
-        console.log(audio);
     };
 
     }, [recorder, isRecording]);

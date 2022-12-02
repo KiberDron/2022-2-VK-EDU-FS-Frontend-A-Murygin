@@ -141,7 +141,7 @@ export default function PageGlobalChat() {
         }
         if (message.text !== "") {sendMessage(message)}
         if (message.text !== "") {console.log(message.text)}
-        //console.log(message.text.split('&&&'))
+        console.log(message.text.split('^^^')[1])
         await sleep(1000); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
         getMessages(); // для отображения отправленного сообщения сразу же
         setText('');

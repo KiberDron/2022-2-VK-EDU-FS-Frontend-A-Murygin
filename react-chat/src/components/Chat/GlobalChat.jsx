@@ -8,7 +8,7 @@ export default function GlobalChat(props) {
         <div className={classes.chat}>
             {props.messages.map(message =>
                 <Message
-                    text={typeof message.text === 'string' ? message.text.split('&&&')[0] : ''}
+                    text={(typeof message.text === 'string' && message.text[0] !== '^') ? message.text.split('&&&')[0] : ''}
                     image={typeof message.text === 'string' ? message.text.split('&&&')[1] : ''}
                     audio={typeof message.text === 'string' ? message.text.split('^^^')[1] : ''}
                     //text={message.text}
