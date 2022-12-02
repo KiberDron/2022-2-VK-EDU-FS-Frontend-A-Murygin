@@ -5,7 +5,7 @@ import ShareLocation from '@mui/icons-material/ShareLocation';
 import Mic from '@mui/icons-material/Mic';
 
 
-export default function Form({onSubmit, handleFiles, onClickGeo, ...props}) {
+export default function Form({onSubmit, handleFiles, onClickGeo, onClickRecord, recordingStatus, ...props}) {
     return (
         <form onSubmit={onSubmit} className={classes.form}>
             <input
@@ -22,7 +22,9 @@ export default function Form({onSubmit, handleFiles, onClickGeo, ...props}) {
             <button className={classes.location_button} onClick={onClickGeo} type="button" title='Click to type your location'>
                 <ShareLocation></ShareLocation>
             </button>
-            <button className={classes.audio_button}>
+            <button className={!recordingStatus ? classes.audio_button : classes.audio_button_on_record}
+                    onClick={onClickRecord}
+                    type="button">
                 <Mic></Mic>
             </button>
         </form>
