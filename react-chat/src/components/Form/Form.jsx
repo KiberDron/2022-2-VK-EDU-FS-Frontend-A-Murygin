@@ -5,15 +5,21 @@ import ShareLocation from '@mui/icons-material/ShareLocation';
 import Mic from '@mui/icons-material/Mic';
 
 
-export default function Form({onSubmit, ...props}) {
+export default function Form({onSubmit, handleFiles, onClickGeo, ...props}) {
     return (
         <form onSubmit={onSubmit} className={classes.form}>
-            <button className={classes.attachment_button}>
+            <input
+                className={classes.visually_hidden}
+                type="file"
+                id="fileElem"
+                accept="image/*"
+                onChange={handleFiles}/>
+            <label className={classes.attachment_button} htmlFor="fileElem">
                 <Attachment></Attachment>
-            </button>
+            </label>
             <input className={classes.form_input} 
             {...props}/>
-            <button className={classes.location_button}>
+            <button className={classes.location_button} onClick={onClickGeo} type="button" title='Click to type your location'>
                 <ShareLocation></ShareLocation>
             </button>
             <button className={classes.audio_button}>

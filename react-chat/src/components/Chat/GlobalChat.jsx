@@ -8,7 +8,10 @@ export default function GlobalChat(props) {
         <div className={classes.chat}>
             {props.messages.map(message =>
                 <Message
-                    text={message.text}
+                    text={typeof message.text === 'string' ? message.text.split('&&&')[0] : ''}
+                    image={typeof message.text === 'string' ? message.text.split('&&&')[1] : ''}
+                    //text={message.text}
+                    //image={message.image}
                     time={typeof message.timestamp === 'string' ? message.timestamp.slice(11, 16) : '00:00'}
                     author={message.author}
                     key={message._id}
