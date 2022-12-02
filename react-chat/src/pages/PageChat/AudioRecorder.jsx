@@ -35,10 +35,8 @@ export default function AudioRecorder() {
 
     if (isRecording) {
         recorder.start();
-        console.log(recorder);
     } else {
         recorder.stop();
-        console.log(recorder);
     }
 
     recorder.ondataavailable = (e) => {
@@ -49,12 +47,10 @@ export default function AudioRecorder() {
 
     const startRecording = () => {
         setIsRecording(true);
-        console.log("start recording");
     };
 
     const stopRecording = () => {
         setIsRecording(false);
-        console.log("stop recording");
     };
 
     return [audio, setAudio, isRecording, startRecording, stopRecording];

@@ -11,8 +11,6 @@ export default function GlobalChat(props) {
                     text={(typeof message.text === 'string' && message.text[0] !== '^') ? message.text.split('&&&')[0] : ''}
                     image={typeof message.text === 'string' ? message.text.split('&&&')[1] : ''}
                     audio={typeof message.text === 'string' ? message.text.split('^^^')[1] : ''}
-                    //text={message.text}
-                    //image={message.image}
                     time={typeof message.timestamp === 'string' ? message.timestamp.slice(11, 16) : '00:00'}
                     author={message.author}
                     key={message._id}
