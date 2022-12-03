@@ -11,7 +11,7 @@ export default function Message(props) {
                     <img className={classes.image} src={props.image} alt=''/>
                 )}
                 {props.audio && (
-                    <audio control='control' src={props.audio}></audio>
+                    <audio controls src={props.audio}></audio>
                 )}
                 <span>{props.text}</span>
             </div>
