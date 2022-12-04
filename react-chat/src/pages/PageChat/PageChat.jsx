@@ -23,7 +23,7 @@ export default function PageChat() {
             .then((resp) => resp.json())
             .then((data) => setMessages(data.reverse()));
         };
-        setInterval(() => pollItems(), 1000);
+        setInterval(() => pollItems(), 10000);
     }, []);
 
     const getMessages = () => {
@@ -61,6 +61,25 @@ export default function PageChat() {
         setText('');
     }
 
+    function geoFindMe() {    
+        function success(position) {
+          const latitude  = position.coords.latitude;
+          const longitude = position.coords.longitude;
+      
+          setText(`https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`);
+        }
+      
+        function error() {
+           alert('Unable to get your location');
+        }
+      
+        if (!navigator.geolocation) {
+          alert('Geolocation is not supported by your browser');
+        } else {
+          navigator.geolocation.getCurrentPosition(success, error);
+        }
+    }
+
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader
@@ -76,6 +95,7 @@ export default function PageChat() {
                 type="textarea"
                 value={text}
                 onChange={handleChange}
+                onClickGeo={geoFindMe}
             ></Form>
         </div>
     )

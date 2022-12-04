@@ -7,3 +7,60 @@
     width: 100vw;
     background-color: #E6E6E6;
 }
+
+.image_preview {
+    height: 80px;
+    width: 80px;
+    border-radius: 12px;
+    margin: 0px 0px 5px 5px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.discard_button {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    margin-left: 70px;
+    padding: 3px 6px 6px 3px;
+    color: white;
+    background-color: #8E24AA;
+    scale: 70%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.discard_button:hover,
+.discard_audio_button:hover,
+.send_button:hover {
+    background-color: #ab47b2;
+}
+
+.discard_button:active,
+.discard_audio_button:active,
+.send_button:active {
+    background-color: rgb(151, 48, 195);
+}
+
+.audio_buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 40px;
+    margin-bottom: 5px;
+}
+
+.discard_audio_button,
+.send_button {
+    color: white;
+    background-color: #8E24AA;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    padding: 3px 6px 6px 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.discard_audio_button {
+    margin-right: 10px;
+}
