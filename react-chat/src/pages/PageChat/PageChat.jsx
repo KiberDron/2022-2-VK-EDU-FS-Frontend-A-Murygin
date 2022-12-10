@@ -3,6 +3,10 @@ import ChatPageHeader from '../../components/ChatPageHeader/ChatPageHeader'
 import Form from '../../components/Form/Form'
 import Chat from '../../components/Chat/Chat'
 import classes from './PageChat.module.scss';
+import { Centrifuge } from "centrifuge";
+
+const centrifuge = new Centrifuge("ws://localhost:8000/connection/websocket");
+const sub = centrifuge.newSubscription("chat");
 
 
 export default function PageChat() {
@@ -16,7 +20,7 @@ export default function PageChat() {
           .then(resp => resp.json())
           .then(data => setMessages(data.reverse()))
     }, []);
-
+/*
     useEffect(() => { // для получения сообщений собеседника в реальном времени
         const pollItems = () => {
             fetch('api/chats/1/messages')
@@ -25,18 +29,41 @@ export default function PageChat() {
         };
         setInterval(() => pollItems(), 10000);
     }, []);
-
+*/
     const getMessages = () => {
         fetch('api/chats/1/messages')
         .then(res => res.json())
         .then(data => setMessages(data.reverse()));
-        };
+    };
+
+    function getCsrfToken() {
+        if (document.cookie) {
+            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0])
+            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10))
+            return document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10)
+        }
+    }
+
+    function addNewMessages(ctx) {
+        const newMessages = Object.assign([], messages);
+        newMessages.unshift(ctx.data);
+        console.log(newMessages);
+        setMessages(newMessages);
+    };
+
+    useEffect(() => {
+        sub.on("publication", addNewMessages); 
+        sub.subscribe();
+        centrifuge.connect();
+    }, [messages]);
 
     function sendMessage(message) {
+        const csrf_token = getCsrfToken()
         fetch('api/chats/1/messages/create/', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                'X-CSRF-TOKEN': csrf_token
             },
             body: JSON.stringify(message),
         });
@@ -50,9 +77,9 @@ export default function PageChat() {
         event.preventDefault();
         const message = {
             "text": text,
-            "author": 1
+            "author": 4
         }
-        if (message.message_text === "") {
+        if (message.text === "") {
             return
         }
         sendMessage(message);

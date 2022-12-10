@@ -10,7 +10,7 @@ export default function Chat(props) {
                 <Message
                     text={message.text}
                     time={typeof message.creation_date === 'string' ? message.creation_date.slice(11, 16) : '00:00'}
-                    author={message.author}
+                    author={message.author || message.author_id}
                     key={message.id}
                 />)
             }
