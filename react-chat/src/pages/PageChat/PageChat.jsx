@@ -55,6 +55,7 @@ export default function PageChat() {
         sub.on("publication", addNewMessages); 
         sub.subscribe();
         centrifuge.connect();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [messages]);
 
     function sendMessage(message) {
