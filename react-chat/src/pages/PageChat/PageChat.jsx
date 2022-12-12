@@ -1,41 +1,26 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import ChatPageHeader from '../../components/ChatPageHeader/ChatPageHeader'
 import Form from '../../components/Form/Form'
 import Chat from '../../components/Chat/Chat'
 import classes from './PageChat.module.scss';
 import { Centrifuge } from "centrifuge";
+import { getMessages, sendMessageAction } from '../../actions'
+
 
 const centrifuge = new Centrifuge("ws://localhost:8000/connection/websocket");
 const sub = centrifuge.newSubscription("chat");
 
-
-export default function PageChat() {
-    const [messages, setMessages] = useState([]);
+function PageChat(props) {
     const [text, setText] = useState('');
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-    useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
-        fetch('api/chats/1/messages')
-          .then(resp => resp.json())
-          .then(data => setMessages(data.reverse()))
+    useEffect(() => {
+        props.getMessages(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 /*
-    useEffect(() => { // для получения сообщений собеседника в реальном времени
-        const pollItems = () => {
-            fetch('api/chats/1/messages')
-            .then((resp) => resp.json())
-            .then((data) => setMessages(data.reverse()));
-        };
-        setInterval(() => pollItems(), 10000);
-    }, []);
-*/
-    const getMessages = () => {
-        fetch('api/chats/1/messages')
-        .then(res => res.json())
-        .then(data => setMessages(data.reverse()));
-    };
-
     function getCsrfToken() {
         if (document.cookie) {
             console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0])
@@ -43,12 +28,9 @@ export default function PageChat() {
             return document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10)
         }
     }
-
-    function addNewMessages(ctx) {
-        const newMessages = Object.assign([], messages);
-        newMessages.unshift(ctx.data);
-        console.log(newMessages);
-        setMessages(newMessages);
+*/
+    function addNewMessages() {
+        props.getMessages(false);
     };
 
     useEffect(() => {
@@ -56,19 +38,7 @@ export default function PageChat() {
         sub.subscribe();
         centrifuge.connect();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [messages]);
-
-    function sendMessage(message) {
-        const csrf_token = getCsrfToken()
-        fetch('api/chats/1/messages/create/', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                'X-CSRF-TOKEN': csrf_token
-            },
-            body: JSON.stringify(message),
-        });
-    }
+    }, [props.messages]);
 
     function handleChange(event) {
         setText(event.target.value);
@@ -83,9 +53,9 @@ export default function PageChat() {
         if (message.text === "") {
             return
         }
-        sendMessage(message);
+        props.sendMessageAction(message, false);
         await sleep(100); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
-        getMessages(); // для отображения отправленного сообщения сразу же
+        props.getMessages(false); // для отображения отправленного сообщения сразу же
         setText('');
     }
 
@@ -115,7 +85,7 @@ export default function PageChat() {
                 name="Дженнифер"
                 last_seen="Была 2 часа назад"
             ></ChatPageHeader>
-            <Chat messages={messages}></Chat>
+            <Chat messages={props.messages}></Chat>
             <Form
                 onSubmit={handleSubmit}
                 name="message-text"
@@ -128,3 +98,9 @@ export default function PageChat() {
         </div>
     )
 }
+
+const mapStateToProps = (state) => ({
+    messages: state.messages.messages,
+});
+
+export default connect(mapStateToProps, { getMessages, sendMessageAction })(PageChat)

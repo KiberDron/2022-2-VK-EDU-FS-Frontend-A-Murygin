@@ -5,6 +5,7 @@ const initialState = {
     error: '',
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
     switch (action.type) {
         case GET_MESSAGES_SUCCESS:
@@ -14,12 +15,12 @@ export default (state = initialState, action) => {
             };
         case GET_MESSAGES_FAILURE:
             return {
-                messages: [state.messages],
+                messages: [...state.messages],
                 error: action.payload,
             };
         case SEND_MESSAGE:
             return {
-                messages: [action.payload, ...state.messages],
+                messages: [ ...state.messages],
                 error: '',
             };
         default:
