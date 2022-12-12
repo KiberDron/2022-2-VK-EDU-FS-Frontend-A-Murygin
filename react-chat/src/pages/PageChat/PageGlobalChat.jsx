@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import ChatPageHeader from '../../components/ChatPageHeader/ChatPageHeader'
 import Form from '../../components/Form/Form'
 import GlobalChat from '../../components/Chat/GlobalChat'
@@ -6,10 +7,10 @@ import Close from '@mui/icons-material/Close';
 import Send from '@mui/icons-material/Send';
 import AudioRecorder from './AudioRecorder';
 import classes from './PageChat.module.scss';
+import { getMessages, sendMessageAction } from '../../actions'
 
 
-export default function PageGlobalChat() {
-    const [messages, setMessages] = useState([]);
+function PageGlobalChat(props) {
     const [text, setText] = useState('');
     const [file, setFile] = useState([]);
 
@@ -17,19 +18,9 @@ export default function PageGlobalChat() {
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-    useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
-        fetch('https://tt-front.vercel.app/messages')
-          .then(resp => resp.json())
-          .then(data => setMessages(data.reverse()))
-    }, []);
-
-    useEffect(() => { // для получения сообщений собеседника в реальном времени
-        const pollItems = () => {
-            fetch('https://tt-front.vercel.app/messages')
-              .then((resp) => resp.json())
-              .then((data) => setMessages(data.reverse()));
-        };
-        setInterval(() => pollItems(), 1000);
+    useEffect(() => {
+        props.getMessages(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function handleFiles (event) {
@@ -68,22 +59,6 @@ export default function PageGlobalChat() {
 
         return response.json();
     }
-      
-    const getMessages = () => {
-        fetch('https://tt-front.vercel.app/messages')
-        .then(res => res.json())
-        .then(data => setMessages(data.reverse()));
-        };
-    
-    function sendMessage (message) {
-        fetch('https://tt-front.vercel.app/message', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(message),
-        });
-    }
 
     function handleChange(event) {
         setText(event.target.value);
@@ -118,11 +93,10 @@ export default function PageGlobalChat() {
         if (message.text === "" && file.length === 0) {
             return
         }
-        if (message.text !== "") {sendMessage(message)}
+        if (message.text !== "") {props.sendMessageAction(message, true)}
         if (message.text !== "") {console.log(message.text)}
-        //console.log(message.text.split('&&&'))
         await sleep(1000); // немного времени, чтобы POST запрос успел пройти в бд, иначе отрисовывает через раз
-        getMessages(); // для отображения отправленного сообщения сразу же
+        props.getMessages(true); // для отображения отправленного сообщения сразу же
         setText('');
         setFile([]);
     }
@@ -139,11 +113,11 @@ export default function PageGlobalChat() {
         if (!audio) {
             return
         }
-        if (message.text !== "") {sendMessage(message)}
+        if (message.text !== "") {props.sendMessageAction(message, true)}
         if (message.text !== "") {console.log(message.text)}
         console.log(message.text.split('^^^')[1])
         await sleep(1000);
-        getMessages();
+        props.getMessages(true);
         setText('');
         setFile([]);
         stopRecording();
@@ -175,7 +149,7 @@ export default function PageGlobalChat() {
                 name="Общий чат"
                 last_seen="В сети"
             ></ChatPageHeader>
-            <GlobalChat messages={messages}></GlobalChat>
+            <GlobalChat messages={props.messages}></GlobalChat>
             {file.length !== 0 && (
                 <>
                     <button className={classes.discard_button} type="button" onClick={() => setFile([])}>
@@ -215,3 +189,9 @@ export default function PageGlobalChat() {
         </div>
     )
 }
+
+const mapStateToProps = (state) => ({
+    messages: state.messages.messages,
+});
+
+export default connect(mapStateToProps, { getMessages, sendMessageAction })(PageGlobalChat)
