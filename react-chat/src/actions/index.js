@@ -17,7 +17,7 @@ const sendMessage = (message) => ({
 
 export const getMessages = (is_global) => {
     return (dispatch, getState) => {
-        console.log('state: ', getState());
+        //console.log('state: ', getState());
         if (is_global) {
             fetch('https://tt-front.vercel.app/messages')
             .then(res => res.json())
@@ -34,6 +34,14 @@ export const getMessages = (is_global) => {
 }
 
 export const sendMessageAction = (message, is_global) => {
+    function getCsrfToken() {
+        if (document.cookie) {
+            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0])
+            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10))
+            return document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10)
+        }
+    }
+
     return (dispatch, getState) => {
         if (is_global) {
             fetch('https://tt-front.vercel.app/message', {
@@ -45,10 +53,12 @@ export const sendMessageAction = (message, is_global) => {
             });
         }
         else {
+            const csrf_token = getCsrfToken()
             fetch('api/chats/1/messages/create/', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "X-CSRFToken": csrf_token
                 },
                 body: JSON.stringify(message),
             });

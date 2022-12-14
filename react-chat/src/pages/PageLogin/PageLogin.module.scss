@@ -1,0 +1,47 @@
+.login_page {
+    height: 100vh;
+    background-color: #8E24AA;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-top: 30vh;
+    margin-bottom: 5vh;
+    color: white;
+    font-size: 40px;
+}
+
+.button_login_google {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F44336;
+    color: white;
+    border: 0;
+    height: 60px;
+    width: 320px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 0;
+}
+
+.button_icon {
+    padding: 19px 20px 19px 20px;
+    background-color: #C53126;
+    cursor: default;
+}
+
+.button_text {
+    margin-left: 35px;
+    color: white;
+    text-decoration: none;
+    padding: 20px 20px 20px 5px;
+}

@@ -50,6 +50,7 @@ export default function PageChatList() {
                     <ChatInList
                         chat_name={"Общий чат"}
                         img_path={"https://bit.ly/3EZwFjZ"}
+                        last_sender={last_message_global.author}
                         last_message={last_message_global.text}
                         last_message_time={typeof last_message_global.timestamp === 'string' ?
                             last_message_global.timestamp.slice(11, 16) : '00:00'}
