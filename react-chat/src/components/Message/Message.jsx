@@ -5,7 +5,8 @@ import DoneAll from '@mui/icons-material/DoneAll';
 
 export default function Message(props) {
     return (
-        <div className={props.author === 4 || props.author === 'Andrey Murygin' ? classes.message_right : classes.message_left}>
+        <div className={props.author === 'Andrey Murygin' ? classes.message_right : classes.message_left}>
+            <span className={classes.author}>{props.author}</span>
             <div className={classes.message_text}>
                 {props.image && (
                     <img className={classes.image} src={props.image} alt=''/>
