@@ -22,7 +22,7 @@ export default function MainContent(props) {
             </div>
             <div className={classes.text_container}>
                 <textarea cols="50" rows="8" onChange={props.onChange}>{props.input}</textarea>
-                <textarea cols="50" rows="8" placeholder='Translation' readOnly>{props.output}</textarea>
+                <textarea cols="50" rows="8" placeholder='Translation' readOnly value={props.output}>{props.output}</textarea>
             </div>
         </div>
     )

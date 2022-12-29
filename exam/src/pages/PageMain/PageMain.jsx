@@ -53,6 +53,7 @@ export default function PageMain() {
         const translation = translate()
         console.log(translation)
         setOutput(translation)
+        console.log(output)
     }
 
     //console.log(translate())
