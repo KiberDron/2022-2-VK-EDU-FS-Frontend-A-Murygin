@@ -13,7 +13,7 @@ export default function MainContent(props) {
                     <option value="en">English</option>
                     <option value="es">Spanish</option>
                 </select>
-                <button>Translate</button>
+                <button onClick={props.translate}>Translate</button>
                 <select>
                     <option value="ru">Russian</option>
                     <option value="en">English</option>
@@ -21,8 +21,8 @@ export default function MainContent(props) {
                 </select>
             </div>
             <div className={classes.text_container}>
-                <textarea cols="50" rows="8"></textarea>
-                <textarea cols="50" rows="8" placeholder='Translation' readOnly></textarea>
+                <textarea cols="50" rows="8" onChange={props.onChange}>{props.input}</textarea>
+                <textarea cols="50" rows="8" placeholder='Translation' readOnly>{props.output}</textarea>
             </div>
         </div>
     )
