@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ChatPageHeader from '../../components/ChatPageHeader/ChatPageHeader'
 import Form from '../../components/Form/Form'
 import Chat from '../../components/Chat/Chat'
+import EmojiKeyboard from '../../components/EmojiKeyboard/EmojiKeyboard'
 import classes from './PageChat.module.scss';
 import { Centrifuge } from "centrifuge";
 import { getMessages, sendMessageAction } from '../../actions'
@@ -13,6 +14,8 @@ const sub = centrifuge.newSubscription("chat");
 
 function PageChat(props) {
     const [text, setText] = useState('');
+
+    const [emojiKeyboard, setEmojiKeyboard] = useState(false);
 
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -78,6 +81,10 @@ function PageChat(props) {
         }
     }
 
+    function onClickEmoji() {
+        setEmojiKeyboard(!emojiKeyboard)
+    }
+
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader
@@ -86,6 +93,11 @@ function PageChat(props) {
                 last_seen="Была 2 часа назад"
             ></ChatPageHeader>
             <Chat messages={props.messages}></Chat>
+            {emojiKeyboard && (
+                <>
+                    <EmojiKeyboard></EmojiKeyboard>
+                </>
+            )}
             <Form
                 onSubmit={handleSubmit}
                 name="message-text"
@@ -94,6 +106,7 @@ function PageChat(props) {
                 value={text}
                 onChange={handleChange}
                 onClickGeo={geoFindMe}
+                onClickEmoji={onClickEmoji}
             ></Form>
         </div>
     )
