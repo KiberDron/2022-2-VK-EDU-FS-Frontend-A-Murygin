@@ -1,5 +1,6 @@
 {
   "name": "exam",
+  "homepage": "https://kiberdron.github.io/2022-2-VK-EDU-FS-Frontend-A-Murygin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

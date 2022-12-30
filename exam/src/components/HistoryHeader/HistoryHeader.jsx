@@ -1,11 +1,11 @@
 import React from 'react'
-import classes from './MainHeader.module.scss'
+import classes from './HistoryHeader.module.scss'
 
 
 export default function MainHeader() {
     return(
         <header className={classes.header}>
-            <h2 className={classes.page_title}>VK Translate</h2>
+            <h2 className={classes.page_title}>История</h2>
         </header>
     )
 }
