@@ -1,0 +1,21 @@
+.history_clear_container {
+    height: 50px;
+    display: flex;
+    border-bottom: 2px solid #EFEFEF;
+    justify-content: flex-end;
+}
+
+.history_clear_button {
+    background-color: white;
+    color: #1B73E8;
+    border: none;
+    height: 40px;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 5px 20px;
+}
+
+.history_clear_button:hover {
+    background-color: #F6FAFE;
+}

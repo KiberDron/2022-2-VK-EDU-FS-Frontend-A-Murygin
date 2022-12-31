@@ -1,0 +1,25 @@
+.translation_container {
+    padding-left: 20px;
+    border-bottom: 2px solid #EFEFEF;
+}
+
+.from_to,
+.input,
+.output {
+    font-size: large;
+}
+
+.input,
+.output {
+    max-width: 800px;
+}
+
+.output {
+    color: #5F6367;
+    margin-top: -10px;
+}
+
+.from_to {
+    display: inline-block;
+    margin-bottom: 10px;
+}
