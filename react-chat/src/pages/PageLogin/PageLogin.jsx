@@ -1,11 +1,9 @@
-import React from 'react';
-import classes from './PageLogin.module.scss';
-import Google from '@mui/icons-material/Google';
+import React from 'react'
+import classes from './PageLogin.module.scss'
+import Google from '@mui/icons-material/Google'
 
-
-export default function PageLogin() {
-
-    return (
+export default function PageLogin () {
+  return (
         <>
             <div className={classes.login_page}>
                 <div className={classes.content}>
@@ -17,5 +15,5 @@ export default function PageLogin() {
                 </div>
             </div>
         </>
-    )
+  )
 }

@@ -3,102 +3,103 @@ import { Link } from 'react-router-dom'
 import ChatListHeader from '../../components/ChatListHeader/ChatListHeader'
 import ChatInList from '../../components/ChatInList/ChatInList'
 import CreateChatButton from '../../components/CreateChat/CreateChat'
-import classes from './PageChatList.module.scss';
-import Done from '@mui/icons-material/Done';
-import DoneAll from '@mui/icons-material/DoneAll';
+import classes from './PageChatList.module.scss'
+import Done from '@mui/icons-material/Done'
+import DoneAll from '@mui/icons-material/DoneAll'
 import avatar1 from '../../images/global-chat.jpg'
 import avatar2 from '../../images/girl.webp'
 import avatar3 from '../../images/man-red-haired.png'
 import avatar4 from '../../images/man-superhero.png'
 
+export default function PageChatList () {
+  const [last_message_global, setLast_message_global] = useState('')
+  const [last_message, setLast_message] = useState('')
 
-export default function PageChatList() {
-    const [last_message_global, setLast_message_global] =useState('');
-    const [last_message, setLast_message] = useState('');
+  useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
+    fetch('https://tt-front.vercel.app/messages')
+      .then(resp => resp.json())
+      .then(data => setLast_message_global(data[data.length - 1]))
+  }, [])
 
-    useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
-        fetch('https://tt-front.vercel.app/messages')
-          .then(resp => resp.json())
-          .then(data => setLast_message_global(data[data.length - 1]));
-    }, []);
+  useEffect(() => { // для получения последнего сообщения в чате в реальном времени
+    const pollItems = () => {
+      fetch('https://tt-front.vercel.app/messages')
+        .then((resp) => resp.json())
+        .then((data) => setLast_message_global(data[data.length - 1]))
+    }
+    setInterval(() => pollItems(), 1000)
+  }, [])
 
-    useEffect(() => { // для получения последнего сообщения в чате в реальном времени
-        const pollItems = () => {
-            fetch('https://tt-front.vercel.app/messages')
-            .then((resp) => resp.json())
-            .then((data) => setLast_message_global(data[data.length - 1]));
-        };
-        setInterval(() => pollItems(), 1000);
-    }, []);
+  useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
+    fetch('api/chats/1/messages')
+      .then(resp => resp.json())
+      .then(data => setLast_message(data[data.length - 1]))
+  }, [])
 
-    useEffect(() => { // для мгновенного отображения сообщений при переходе на страницу
-        fetch('api/chats/1/messages')
-          .then(resp => resp.json())
-          .then(data => setLast_message(data[data.length - 1]));
-    }, []);
+  useEffect(() => { // для получения последнего сообщения в чате в реальном времени
+    const pollItems = () => {
+      fetch('api/chats/1/messages')
+        .then((resp) => resp.json())
+        .then((data) => setLast_message(data[data.length - 1]))
+    }
+    setInterval(() => pollItems(), 1000)
+  }, [])
 
-    useEffect(() => { // для получения последнего сообщения в чате в реальном времени
-        const pollItems = () => {
-            fetch('api/chats/1/messages')
-            .then((resp) => resp.json())
-            .then((data) => setLast_message(data[data.length - 1]));
-        };
-        setInterval(() => pollItems(), 1000);
-    }, []);
-
-    return (
+  return (
         <>
             <ChatListHeader></ChatListHeader>
             <article className={classes.chat_list}>
-                <Link to='/global_chat' style={{textDecoration: 'none'}}>
+                <Link to='/global_chat' style={{ textDecoration: 'none' }}>
                     <ChatInList
-                        chat_name={"Общий чат"}
+                        chat_name={'Общий чат'}
                         img_path={avatar1}
                         last_sender={last_message_global.author}
                         last_message={last_message_global.text}
-                        last_message_time={typeof last_message_global.timestamp === 'string' ?
-                            last_message_global.timestamp.slice(11, 16) : '00:00'}
+                        last_message_time={typeof last_message_global.timestamp === 'string'
+                          ? last_message_global.timestamp.slice(11, 16)
+                          : '00:00'}
                         message_status={classes.message_status}
                         Tag={DoneAll}
-                        read_status={"material-icons"}
-                        count={""}
+                        read_status={'material-icons'}
+                        count={''}
                     ></ChatInList>
                 </Link>
-                <Link to='/chat' style={{textDecoration: 'none'}}>
+                <Link to='/chat' style={{ textDecoration: 'none' }}>
                     <ChatInList
-                        chat_name={"Дженнифер"}
+                        chat_name={'Дженнифер'}
                         img_path={avatar2}
                         last_message={last_message.text}
-                        last_message_time={typeof last_message.creation_date === 'string' ?
-                            last_message.creation_date.slice(11, 16) : '00:00'}
+                        last_message_time={typeof last_message.creation_date === 'string'
+                          ? last_message.creation_date.slice(11, 16)
+                          : '00:00'}
                         message_status={classes.received_message_status}
-                        Tag={"span"}
+                        Tag={'span'}
                         read_status={classes.messages_count}
                         count={1}
                     ></ChatInList>
                 </Link>
                 <ChatInList
-                    chat_name={"Антон Иванов"}
+                    chat_name={'Антон Иванов'}
                     img_path={avatar3}
-                    last_message={"Тоха, ты где?"}
-                    last_message_time={"14:21"}
+                    last_message={'Тоха, ты где?'}
+                    last_message_time={'14:21'}
                     message_status={classes.message_status}
                     Tag={DoneAll}
-                    read_status={"material-icons"}
-                    count={""}
+                    read_status={'material-icons'}
+                    count={''}
                 ></ChatInList>
                 <ChatInList
-                    chat_name={"Денис универ"}
+                    chat_name={'Денис универ'}
                     img_path={avatar4}
-                    last_message={"Едешь на пары?"}
-                    last_message_time={"08:22"}
+                    last_message={'Едешь на пары?'}
+                    last_message_time={'08:22'}
                     message_status={classes.message_status}
                     Tag={Done}
-                    read_status={"material-icons"}
-                    count={""}
+                    read_status={'material-icons'}
+                    count={''}
                 ></ChatInList>
             </article>
             <CreateChatButton></CreateChatButton>
         </>
-    )
+  )
 }

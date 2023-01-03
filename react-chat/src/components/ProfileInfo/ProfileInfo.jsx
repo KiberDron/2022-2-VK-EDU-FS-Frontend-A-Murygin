@@ -1,19 +1,19 @@
 import React from 'react'
 import classes from './ProfileInfo.module.scss'
+import PropTypes from 'prop-types'
 
+function ProfileInfo (props) {
+  const handleNameChange = (event) => {
+    props.setName(event.target.value)
+  }
+  const handleUsernameChange = (event) => {
+    props.setUsername(event.target.value)
+  }
+  const handleBioChange = (event) => {
+    props.setBio(event.target.value)
+  }
 
-export default function ProfileInfo(props) {
-    const handleNameChange = (event) => {
-        props.setName(event.target.value);
-    };
-    const handleUsernameChange = (event) => {
-        props.setUsername(event.target.value);
-    };
-    const handleBioChange = (event) => {
-        props.setBio(event.target.value);
-    };
-
-    return (
+  return (
         <article className={classes.profile_info}>
             <div className={classes.info_block_extended}>
                 <div className={classes.info_block}>
@@ -54,5 +54,16 @@ export default function ProfileInfo(props) {
                 <span className={classes.info_block_description}>Any details about you</span>
             </div>
         </article>
-    )
+  )
 }
+
+ProfileInfo.propTypes = {
+  setName: PropTypes.any,
+  setUsername: PropTypes.any,
+  setBio: PropTypes.any,
+  name: PropTypes.string,
+  username: PropTypes.string,
+  bio: PropTypes.string
+}
+
+export default ProfileInfo

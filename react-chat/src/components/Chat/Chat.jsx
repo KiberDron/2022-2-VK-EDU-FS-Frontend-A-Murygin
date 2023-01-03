@@ -1,16 +1,16 @@
 import React from 'react'
 import Message from '../Message/Message'
 import classes from './Chat.module.scss'
+import PropTypes from 'prop-types'
 
+function Chat (props) {
+  const now = new Date()
+  const def_time = now.toLocaleTimeString('default', {
+    hour: '2-digit',
+    minute: '2-digit'
+  })
 
-export default function Chat(props) {
-    const now = new Date()
-    const def_time = now.toLocaleTimeString('default', {
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-
-    return (
+  return (
         <div className={classes.chat}>
             {props.messages.map(message =>
                 <Message
@@ -21,5 +21,11 @@ export default function Chat(props) {
                 />)
             }
         </div>
-    )
-} 
+  )
+}
+
+Chat.propTypes = {
+  messages: PropTypes.array
+}
+
+export default Chat

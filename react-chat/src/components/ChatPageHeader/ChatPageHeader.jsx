@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './ChatPageHeader.module.scss'
-import ArrowBack from '@mui/icons-material/ArrowBack';
-import Search from '@mui/icons-material/Search';
-import MoreVert from '@mui/icons-material/MoreVert';
+import ArrowBack from '@mui/icons-material/ArrowBack'
+import Search from '@mui/icons-material/Search'
+import MoreVert from '@mui/icons-material/MoreVert'
+import PropTypes from 'prop-types'
 
-
-export default function ChatPageHeader(props) {
-    return (
+function ChatPageHeader (props) {
+  return (
         <header className={classes.header}>
             <Link className={classes.link} aria-label='Go back to chat list' to='/'>
                 <button className={classes.back_button} aria-label='back' type="">
@@ -28,5 +28,13 @@ export default function ChatPageHeader(props) {
                 <MoreVert></MoreVert>
             </button>
         </header>
-    )
+  )
 }
+
+ChatPageHeader.propTypes = {
+  img_path: PropTypes.string,
+  name: PropTypes.string,
+  last_seen: PropTypes.string
+}
+
+export default ChatPageHeader

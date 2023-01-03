@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './ProfileHeader.module.scss'
-import ArrowBack from '@mui/icons-material/ArrowBack';
-import Done from '@mui/icons-material/Done';
+import ArrowBack from '@mui/icons-material/ArrowBack'
+import Done from '@mui/icons-material/Done'
+import PropTypes from 'prop-types'
 
-
-export default function ProfileHeader(props) {
-    return (
+function ProfileHeader (props) {
+  return (
         <header className={classes.header}>
             <Link className={classes.link} to='/'>
                 <button className={classes.back_button} type="">
@@ -18,5 +18,11 @@ export default function ProfileHeader(props) {
                 <Done></Done>
             </button>
         </header>
-    )
+  )
 }
+
+ProfileHeader.propTypes = {
+  onClick: PropTypes.func
+}
+
+export default ProfileHeader
