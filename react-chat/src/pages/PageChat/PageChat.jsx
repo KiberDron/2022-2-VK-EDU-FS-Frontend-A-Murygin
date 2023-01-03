@@ -31,6 +31,7 @@ function PageChat (props) {
     sub.on('publication', addNewMessages)
     sub.subscribe()
     centrifuge.connect()
+    centrifuge.disconnect()
   }, [props.messages])
 
   function handleChange (event) {
