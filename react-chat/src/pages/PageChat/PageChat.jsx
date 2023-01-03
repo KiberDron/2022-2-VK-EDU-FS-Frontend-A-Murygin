@@ -85,6 +85,11 @@ function PageChat(props) {
         setEmojiKeyboard(!emojiKeyboard)
     }
 
+    function onClickSingleEmoji(name) {
+        const code = '::' + name + '::'
+        setText(text + code)
+    }
+
     return (
         <div className={classes.chat_page}>
             <ChatPageHeader
@@ -95,7 +100,7 @@ function PageChat(props) {
             <Chat messages={props.messages}></Chat>
             {emojiKeyboard && (
                 <>
-                    <EmojiKeyboard></EmojiKeyboard>
+                    <EmojiKeyboard onClickSingleEmoji={onClickSingleEmoji}></EmojiKeyboard>
                 </>
             )}
             <Form

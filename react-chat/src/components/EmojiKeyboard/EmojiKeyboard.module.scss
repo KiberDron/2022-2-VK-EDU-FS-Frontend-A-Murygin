@@ -1,11 +1,20 @@
 .emoji_container {
     display: flex;
+    margin: 0px 200px 10px 15px;
+    background-color: rgb(152, 140, 140);
+    border-radius: 8px;
 }
 
 .emoji {
     height: 22px;
     width: 22px;
     border: 0px;
+}
+
+.emoji_on_keyboard {
+    margin: 10px 3px;
+    cursor: pointer;
+    //padding: 0px 2px;
 }
 
 .alien {
