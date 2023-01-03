@@ -8,6 +8,7 @@ import classes from './PageChat.module.scss'
 import { Centrifuge } from 'centrifuge'
 import { getMessages, sendMessageAction } from '../../actions'
 import PropTypes from 'prop-types'
+import avatar from '../../images/girl.webp'
 
 const centrifuge = new Centrifuge('ws://localhost:8000/connection/websocket')
 const sub = centrifuge.newSubscription('chat')
@@ -84,7 +85,7 @@ function PageChat (props) {
   return (
         <div className={classes.chat_page}>
             <ChatPageHeader
-                img_path="https://bit.ly/3D1dHbQ"
+                img_path={avatar}
                 name="Дженнифер"
                 last_seen="Была 2 часа назад"
             ></ChatPageHeader>
