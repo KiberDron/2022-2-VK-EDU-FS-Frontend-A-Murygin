@@ -23,15 +23,7 @@ function PageChat(props) {
         props.getMessages(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-/*
-    function getCsrfToken() {
-        if (document.cookie) {
-            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0])
-            console.log(document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10))
-            return document.cookie.match(/csrftoken=([\w-]+)/)[0].slice(10)
-        }
-    }
-*/
+
     function addNewMessages() {
         props.getMessages(false);
     };

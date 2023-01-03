@@ -14,13 +14,14 @@ export default function Form({onSubmit, handleFiles, onClickGeo, onClickEmoji, o
                 type="file"
                 id="fileElem"
                 accept="image/*"
-                onChange={handleFiles}/>
+                onChange={handleFiles}
+                aria-label='send messages'/>
             <label className={classes.attachment_button} htmlFor="fileElem">
                 <Attachment></Attachment>
             </label>
             <input className={classes.form_input} 
             {...props}/>
-            <button className={classes.emoji_button} onClick={onClickEmoji} type="button">
+            <button className={classes.emoji_button} onClick={onClickEmoji} aria-label='emojis' type="button">
                 <EmojiEmotions></EmojiEmotions>
             </button>
             <button className={classes.location_button} onClick={onClickGeo} type="button" title='Click to type your location'>
@@ -28,6 +29,7 @@ export default function Form({onSubmit, handleFiles, onClickGeo, onClickEmoji, o
             </button>
             <button className={!recordingStatus ? classes.audio_button : classes.audio_button_on_record}
                     onClick={onClickRecord}
+                    aria-label='audio messages'
                     type="button">
                 <Mic></Mic>
             </button>

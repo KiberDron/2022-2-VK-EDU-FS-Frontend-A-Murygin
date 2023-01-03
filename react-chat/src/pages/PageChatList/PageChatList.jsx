@@ -6,6 +6,10 @@ import CreateChatButton from '../../components/CreateChat/CreateChat'
 import classes from './PageChatList.module.scss';
 import Done from '@mui/icons-material/Done';
 import DoneAll from '@mui/icons-material/DoneAll';
+import avatar1 from '../../images/global-chat.jpg'
+import avatar2 from '../../images/girl.webp'
+import avatar3 from '../../images/man-red-haired.png'
+import avatar4 from '../../images/man-superhero.png'
 
 
 export default function PageChatList() {
@@ -49,7 +53,7 @@ export default function PageChatList() {
                 <Link to='/global_chat' style={{textDecoration: 'none'}}>
                     <ChatInList
                         chat_name={"Общий чат"}
-                        img_path={"https://bit.ly/3EZwFjZ"}
+                        img_path={avatar1}
                         last_sender={last_message_global.author}
                         last_message={last_message_global.text}
                         last_message_time={typeof last_message_global.timestamp === 'string' ?
@@ -63,7 +67,7 @@ export default function PageChatList() {
                 <Link to='/chat' style={{textDecoration: 'none'}}>
                     <ChatInList
                         chat_name={"Дженнифер"}
-                        img_path={"https://bit.ly/3D1dHbQ"}
+                        img_path={avatar2}
                         last_message={last_message.text}
                         last_message_time={typeof last_message.creation_date === 'string' ?
                             last_message.creation_date.slice(11, 16) : '00:00'}
@@ -75,7 +79,7 @@ export default function PageChatList() {
                 </Link>
                 <ChatInList
                     chat_name={"Антон Иванов"}
-                    img_path={"https://bit.ly/3TuBtmr"}
+                    img_path={avatar3}
                     last_message={"Тоха, ты где?"}
                     last_message_time={"14:21"}
                     message_status={classes.message_status}
@@ -85,7 +89,7 @@ export default function PageChatList() {
                 ></ChatInList>
                 <ChatInList
                     chat_name={"Денис универ"}
-                    img_path={"https://bit.ly/3SwIvWp"}
+                    img_path={avatar4}
                     last_message={"Едешь на пары?"}
                     last_message_time={"08:22"}
                     message_status={classes.message_status}
