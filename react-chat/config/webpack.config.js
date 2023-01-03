@@ -167,9 +167,11 @@ module.exports = function (webpackEnv) {
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
       },
+      /*
       {
         loader: require.resolve('css-sprite-loader')
       },
+      */
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push(
@@ -569,7 +571,7 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
-      new CSSSpritePlugin(),
+      //new CSSSpritePlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
