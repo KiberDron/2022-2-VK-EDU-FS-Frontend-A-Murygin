@@ -1,10 +1,10 @@
 import React from 'react'
 import Message from '../Message/Message'
 import classes from './Chat.module.scss'
+import PropTypes from 'prop-types'
 
-
-export default function GlobalChat(props) {
-    return (
+function GlobalChat (props) {
+  return (
         <div className={classes.chat}>
             {props.messages.map(message =>
                 <Message
@@ -17,5 +17,11 @@ export default function GlobalChat(props) {
                 />)
             }
         </div>
-    )
-} 
+  )
+}
+
+GlobalChat.propTypes = {
+  messages: PropTypes.array
+}
+
+export default GlobalChat

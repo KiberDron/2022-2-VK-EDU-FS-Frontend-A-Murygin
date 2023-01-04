@@ -13,7 +13,8 @@
 
 .attachment_button,
 .location_button,
-.audio_button {
+.audio_button,
+.emoji_button {
     color: #757575;
     border: 0;
     background-color: white;
@@ -27,7 +28,8 @@
 
 .location_button,
 .audio_button,
-.audio_button_on_record{
+.audio_button_on_record,
+.emoji_button {
     padding-right: 10px;
     padding-left: 5px;
 }
@@ -40,13 +42,15 @@
 
 .attachment_button:hover,
 .location_button:hover,
-.audio_button:hover {
+.audio_button:hover,
+.emoji_button:hover {
     opacity: 0.8;
 }
   
 .attachment_button:active,
 .location_button:active,
-.audio_button:active {
+.audio_button:active,
+.emoji_button:active {
     opacity: 0.8;
     color: #aa00ff;
 }

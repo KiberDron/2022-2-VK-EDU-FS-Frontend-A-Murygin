@@ -1,0 +1,263 @@
+.emoji_container {
+    display: flex;
+    margin: 0px 200px 10px 15px;
+    background-color: rgb(152, 140, 140);
+    border-radius: 8px;
+}
+
+.emoji {
+    height: 22px;
+    width: 22px;
+    border: 0px;
+}
+
+.emoji_on_keyboard {
+    margin: 10px 3px;
+    cursor: pointer;
+    //padding: 0px 2px;
+}
+
+.alien {
+    background: url('../../emojis/alien.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.angry-face {
+    background: url('../../emojis/angry-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.anguished-face {
+    background: url('../../emojis/anguished-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.astonished-face {
+    background: url('../../emojis/astonished-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.beaming-face-with-smiling-eyes {
+    background: url('../../emojis/beaming-face-with-smiling-eyes.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.black-heart {
+    background: url('../../emojis/black-heart.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.clown-face {
+    background: url('../../emojis/clown-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.cold-face {
+    background: url('../../emojis/cold-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.confounded-face {
+    background: url('../../emojis/confounded-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.confused-face {
+    background: url('../../emojis/confused-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.crying-face {
+    background: url('../../emojis/crying-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.disappointed-face {
+    background: url('../../emojis/disappointed-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.dizzy-face {
+    background: url('../../emojis/dizzy-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.downcast-face-with-sweat {
+    background: url('../../emojis/downcast-face-with-sweat.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.expressionless-face {
+    background: url('../../emojis/expressionless-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.eyes {
+    background: url('../../emojis/eyes.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-blowing-a-kiss {
+    background: url('../../emojis/face-blowing-a-kiss.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-savoring-food {
+    background: url('../../emojis/face-savoring-food.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-screaming-in-fear {
+    background: url('../../emojis/face-screaming-in-fear.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-with-monocle {
+    background: url('../../emojis/face-with-monocle.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-with-open-mouth {
+    background: url('../../emojis/face-with-open-mouth.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-without-mouth {
+    background: url('../../emojis/face-without-mouth.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-with-tears-of-joy {
+    background: url('../../emojis/face-with-tears-of-joy.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.face-with-tongue {
+    background: url('../../emojis/face-with-tongue.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.frowning-face {
+    background: url('../../emojis/frowning-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.heart-suit {
+    background: url('../../emojis/heart-suit.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.kissing-face-with-closed-eyes {
+    background: url('../../emojis/kissing-face-with-closed-eyes.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.nerd-face {
+    background: url('../../emojis/nerd-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.neutral-face {
+    background: url('../../emojis/neutral-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.ok-hand {
+    background: url('../../emojis/ok-hand.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.pensive-face {
+    background: url('../../emojis/pensive-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.pouting-face {
+    background: url('../../emojis/pouting-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.sleepy-face {
+    background: url('../../emojis/sleepy-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.slightly-frowning-face {
+    background: url('../../emojis/slightly-frowning-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.slightly-smiling-face {
+    background: url('../../emojis/slightly-smiling-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.smiling-face {
+    background: url('../../emojis/smiling-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.smiling-face-with-3-hearts {
+    background: url('../../emojis/smiling-face-with-3-hearts.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.smiling-face-with-heart-eyes {
+    background: url('../../emojis/smiling-face-with-heart-eyes.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.smiling-face-with-sunglasses {
+    background: url('../../emojis/smiling-face-with-sunglasses.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.squinting-face-with-tongue {
+    background: url('../../emojis/squinting-face-with-tongue.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.star-struck {
+    background: url('../../emojis/star-struck.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.thinking-face {
+    background: url('../../emojis/thinking-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.thumbs-down {
+    background: url('../../emojis/thumbs-down.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.thumbs-up {
+    background: url('../../emojis/thumbs-up.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.upside-down-face {
+    background: url('../../emojis/upside-down-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.victory-hand {
+    background: url('../../emojis/victory-hand.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.waving-hand {
+    background: url('../../emojis/waving-hand.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.winking-face {
+    background: url('../../emojis/winking-face.png?sprite') no-repeat;
+    background-size: 22px;
+}
+
+.zipper-mouth-face {
+    background: url('../../emojis/zipper-mouth-face.png?sprite') no-repeat;
+    background-size: 22px;
+}

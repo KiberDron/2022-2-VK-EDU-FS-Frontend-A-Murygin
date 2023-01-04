@@ -40,8 +40,12 @@
     flex-grow: 1;
 }
 
+.last_message {
+    display: flex;
+}
+
 .last_message, .last_message_time {
-    color: #787878;
+    color: #575757;
 }
 
 .last_sender {
