@@ -11,7 +11,7 @@ export default function MainContent(props) {
                     defaultValue={props.from}
                     onChange={props.handleFromLangChange}>
                     {props.languages.map(language =>
-                        <option value={language} selected={language==='en' ? true : false} key={language}>{props.lang_dict[language].name}</option>)}
+                        <option className={classes.option} value={language} selected={language==='en' ? true : false} key={language}>{props.lang_dict[language].name}</option>)}
                 </select>
                 <button className={classes.translate_button} onClick={props.translate}>Translate</button>
                 <select
@@ -19,7 +19,7 @@ export default function MainContent(props) {
                     defaultValue={props.to}
                     onChange={props.handleToLangChange}>
                     {props.languages.map(language =>
-                        <option value={language} selected={language==='ru' ? true : false} key={language}>{props.lang_dict[language].name}</option>)}
+                        <option className={classes.option} value={language} selected={language==='ru' ? true : false} key={language}>{props.lang_dict[language].name}</option>)}
                 </select>
             </div>
             <div className={classes.text_container}>
